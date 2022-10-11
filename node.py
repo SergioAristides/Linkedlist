@@ -97,6 +97,21 @@ class Linkedlist:
                 index=int(input("ingrese la posicion de otro nodo"))
             else:
                 pass 
+    def remove_position(self, position):
+        if position != 1:
+            current = self.first
+            i = 1
+            while current.next != None and i < position - 1:
+                current = current.next
+                i += 1
+            if current.next != None:
+                current.next = current.next.next
+                return True
+            else:
+                return False
+        else:
+            self.first= self.first.next
+            return True
             
     
             
@@ -114,5 +129,19 @@ class Linkedlist:
                 i += 1
             new_node.next = current.next
             current.next = new_node
+            
+    def reverse(self):
+        prev=None
+        current =self.first
+        tmp=self.first.next
+        
+        while current !=None:
+            tmp=current.next
+            current.next =prev
+            prev=current
+            current=tmp
+            
+        self.first=prev    
+        return self.first
         
     

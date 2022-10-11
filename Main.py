@@ -6,6 +6,8 @@ if __name__ == '__main__':
     myList.append(1)
     myList.append(2)
     myList.append(6)
+    myList.remove_position(2)
+    myList.append(55)
     myList.append_first(23)
     myList.append_first(16)
     myList.append_first(5)
@@ -16,7 +18,7 @@ if __name__ == '__main__':
     myList.append(12)
     myList.remove_value(1)
     print(myList)
-    
+    myList.reverse()
     print(myList)
 
     
