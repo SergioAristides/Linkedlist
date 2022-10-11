@@ -10,6 +10,7 @@ if __name__ == '__main__':
     myList.append_first(16)
     myList.append_first(5)
     myList.remove_begin()
+    myList.insert_position(5,2)
     myList.remove_end()
     myList.append(31)
     myList.append(12)

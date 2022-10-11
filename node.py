@@ -100,6 +100,19 @@ class Linkedlist:
             
     
             
+    def insert_position(self, value, index):
+        new_node = Node(value)
 
+        if index == 1:
+            new_node.next = self.first
+            self.first = new_node
+        else:
+            current = self.first
+            i = 1
+            while current.next != None and i < index:
+                current = current.next
+                i += 1
+            new_node.next = current.next
+            current.next = new_node
         
     
