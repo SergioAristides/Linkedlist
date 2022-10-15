@@ -86,20 +86,54 @@ class Linkedlist:
             current=current.next
         String+="]"
         return String
-    
-    def insert(self,index):
-        while True:
-            if index==self.size-1:
-                return self.tail.value
-            elif index==0:
-                return self.first.value
-            elif index <0 or index >=self.size:
-                index=int(input("ingrese la posicion de otro nodo"))
+    def remove_position(self, position):
+        if position != 1:
+            current = self.first
+            i = 1
+            while current.next != None and i < position - 1:
+                current = current.next
+                i += 1
+            if current.next != None:
+                current.next = current.next.next
+                return True
             else:
-                pass 
+                return False
+        else:
+            self.first= self.first.next
+            return True
+    
+    def insert_position(self, value, index):
+        new_node = Node(value)
+
+        if index == 1:
+            new_node.next = self.first
+            self.first = new_node
+        else:
+            current = self.first
+            i = 1
+            while current.next != None and i < index:
+                current = current.next
+                i += 1
+            new_node.next = current.next
+            current.next = new_node
+            
+    def reverse(self):
+        prev=None
+        current =self.first
+        tmp=self.first.next
+        
+        while current !=None:
+            tmp=current.next
+            current.next =prev
+            prev=current
+            current=tmp
+            
+        self.first=prev    
+        return self.first
+                
+    
             
     
             
 
         
-    
